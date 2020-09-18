@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+
+<!-- styling block -->
+{% block content %}
+{{ super() }}
+<link href="https://fonts.googleapis.com/css?family=Black+Ops+One" rel="stylesheet">
+<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+{% endblock%}
+
+{% block content %}
+<!-- Content block -->
+<div class="container">
+
+    <!-- Article background-->
+    <main class="container-fluid">
+
+        <div class="articles">
+            <h3><img src="../static/images/__" alt="" width="150px" height="90px"> | {{id}} | Top News Articles</h3>
+            <hr />
+            <ul class="unstyled">
+                <div>
+                    {{ macro.displayArticlesList(articles) }}
+                </div>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <h4>News_API_inc.</h4>
+    </footer>
+
+
+    {% endblock %}
