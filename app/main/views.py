@@ -32,13 +32,13 @@ def articles(id):
     View news_source page function that returns the news_source page and its articles
     '''
     articles = get_articles(id)
-    title = f'NewsCamp {id}'
+    title = f'NH | {id}'
     
 
     return render_template('news_article.html', title=title, articles=articles)
 
 
-@main.route('/search/<movie_name>')
+@main.route('/search/<article_name>')
 def search(article_name):
     '''
     View function to display the search results

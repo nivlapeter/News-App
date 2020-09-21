@@ -1,29 +1,32 @@
-{% macro displaySourceList(source_list) %}
-<div class="row">
-    {% for source in new_source_list %}
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 block" style="
-                border-radius: 2px;
-                margin-bottom: 10px;
-                background-color:rgb(30, 66, 39);
-                height: 190px;">
-        <h4>{{ source.title}}</h4>
-        <p>{{source.description}}</p>
-        <a href="/source/{{source.id}}" class="btn btn-secondary" target="_blank">{{source.title}}</a>
-    </div>
-    {% endfor %}
-</div>
-{% endmacro %}
+{% macro displaySourceList(sources_list) %}
 
-{% macro displayArticlesList(articles_list) %}
-{% for article in articles_list %}
-{%if article.image%}
-<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="padding-bottom: 15px;">
-    <img src="{{article.image}}" alt="article_image" class="img-responsive">
-    <h4>{{article.title}}</h4>
-    <p>{{article.description}}</p>
-    <p>Created: {{article.publishedAt}}</p>
-    <a href="{{article.url}}" class="btn-secondary">Read more</a>
-</div>
-{%endif%}
-{% endfor %}
+	{% for source_row in sources_list |batch(4)%}
+        <div class="row">
+        	
+	        	
+            {% for source in source_row %}
+	            <div class="col-md-3">
+		           
+		            <div class="panel panel-default">
+						<div class="panel-heading">
+							<a href="/source/{{source.id}}">
+							    {{ source.title}}
+					        </a>
+						</div>
+						<div class="panel-body">
+							<p>
+								{{ sources.description |truncate(100)}}
+
+							</p>
+							<a href="/source/{{source.id}}" class="btn btn-success btn-sm">Visit {{source.title}}</a>
+						</div>
+						
+		
+					</div>
+		        </div>
+            {% endfor %}
+	        	
+        </div>
+    {% endfor %}
+
 {% endmacro %}

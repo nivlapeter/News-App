@@ -14,40 +14,32 @@
 
 </div>
 
-
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background:#FBFCFC; padding-bottom: 50px;">
-    <!-- Business News -->
-    <h3>Business News</h3>
+<div class="container">
+    <!-- Business News Section  -->
+    <h3> Top Business News Sources</h3>
     <hr>
-    <div class="is-flex" style="display: flex; flex-wrap: wrap;">
-        {{macro.displaySourceList(business)}}
-    </div>
-</div>
 
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-bottom: 50px;">
-    <!-- Technology News -->
-    <h3>Tech News </h3>
-    <hr>
-    <div class="is-flex" style="display: flex; flex-wrap: wrap;">
-        {{macro.displaySourceList(technology)}}
-    </div>
-</div>
+    {{ macro.displaySourceList(business_news_sources)}}
 
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-bottom: 50px;">
-    <!-- Entertainment News -->
-    <h3>Entertainment News </h3>
+    <!-- Technology News Section  -->
+    <h3> Top Technology News Sources</h3>
     <hr>
-    <div class="is-flex" style="display: flex; flex-wrap: wrap;">
-        {{macro.displaySourceList(entertainment)}}
-    </div>
-</div>
 
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background:#FBFCFC; padding-bottom: 50px;">
-    <!-- Sports News -->
-    <h3>Sports News Sources</h3>
+    {{ macro.displaySourceList(technology_news_sources)}}
+
+    <!-- Entertainment News Section  -->
+
+    <h3> Top Entertainment News Sources</h3>
     <hr>
-    <div class="is-flex" style="display: flex; flex-wrap: wrap;">
-        {{macro.displaySourceList(sports)}}
-    </div>
+
+    {{ macro.displaySourceList(entertainment_news_sources)}}
+
+    <!-- Sports News Section  -->
+
+    <h3> Top Sports News Sources</h3>
+    <hr>
+
+    {{ macro.displaySourceList(sports_news_sources)}}
+
 </div>
 {%endblock%}

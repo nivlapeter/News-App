@@ -1,12 +1,14 @@
-import urllib.request
-import json
+import urllib.request,json
 from .models import Source, Articles
+from datetime import datetime
 
 
 # Getting api key
 api_key = None
+
 # Getting the movie base url
 base_url = None
+
 # Getting the news articles url
 news_articles_url = None
 
@@ -31,8 +33,8 @@ def get_sources(category):
 
         sources_results = None
 
-        if get_sources_response['news_sources']:
-            sources_results_list = get_sources_response['news sources']
+        if get_sources_response['sources']:
+            sources_results_list = get_sources_response['sources']
             sources_results = process_results(sources_results_list)
 
     return sources_results
@@ -69,7 +71,7 @@ def get_articles(id):
     Function that gets the json response to our articles request
     '''
 
-    get_articles_url = base_url.format(id, api_key)
+    get_articles_url = articles_url.format(id, api_key)
 
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
