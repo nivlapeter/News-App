@@ -71,7 +71,7 @@ def get_articles(id):
     Function that gets the json response to our articles request
     '''
 
-    get_articles_url = articles_url.format(id, api_key)
+    get_articles_url = news_articles_url.format(id, api_key)
 
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
@@ -104,7 +104,7 @@ def process_articles(articles_list):
         date = article_item.get('publishedAt')
 
     if image:
-        articles_object = Articles(title, image, description, url, date)
+        articles_object = Articles(id, title, image, description, url, date)
         articles_results.append(articles_object)
 
     return articles_results
